@@ -1,11 +1,46 @@
-import { Color, Scene } from 'three';
+import {
+	Color,
+	Scene,
+	TextureLoader,
+	CubeTextureLoader,
+	EquirectangularReflectionMapping,
+	SRGBColorSpace,
+} from "three";
 
 function createScene() {
-  const scene = new Scene();
+	const scene = new Scene();
 
-  scene.background = new Color('skyblue');
+	const textureEquirec = createCubeTexture();
 
-  return scene;
+	scene.background = textureEquirec;
+
+	return scene;
 }
 
-export { createScene };
+function createTexture() {
+	const textureLoader = new TextureLoader();
+	const textureEquirec = textureLoader.load(
+		"src/assets/2294472375_24a3b8ef46_o.jpg"
+	);
+	textureEquirec.mapping = EquirectangularReflectionMapping;
+	textureEquirec.colorSpace = SRGBColorSpace;
+
+	return textureEquirec;
+}
+
+function createCubeTexture() {
+	const loader = new CubeTextureLoader();
+	loader.setPath("src/assets/Brigde/");
+	const textureCube = loader.load([
+		"posx.jpg",
+		"negx.jpg",
+		"posy.jpg",
+		"negy.jpg",
+		"posz.jpg",
+		"negz.jpg",
+	]);
+
+	return textureCube;
+}
+
+export { createScene, createTexture, createCubeTexture };
