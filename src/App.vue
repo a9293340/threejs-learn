@@ -1,14 +1,16 @@
 <script setup>
 import { World } from "@/three/World/World.js";
+import { Cards } from "@/three/Cards/Cards.js";
+import { Universe } from "./three/Universe/Universe.js";
 import { onMounted } from "vue";
 
 const initThree = async () => {
 	const container = document.querySelector("#scene-container");
-	const world = new World(container);
+	const cards = new Cards(container);
 
-	await world.init();
+	cards.start();
 
-	world.start();
+	await cards.init();
 };
 
 onMounted(async () => {

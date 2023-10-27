@@ -45,7 +45,7 @@ function createCube() {
 
 	cube.rotation.set(MathUtils.degToRad(50), MathUtils.degToRad(30), 0);
 
-	cube.position.set(8, 8, 8);
+	cube.position.set(0, 70, -30);
 
 	cube.setPosition = (x, y, z) => cube.position.set(x, y, z);
 	cube.setScale = (x, y, z) => cube.scale.set(x, y, z);

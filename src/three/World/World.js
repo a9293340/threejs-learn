@@ -31,13 +31,14 @@ class World {
 
 		this.#controls = createControls(this.#camera, this.#renderer.domElement);
 		const cube = createCube();
+		const cubeBall = createCube();
 		const meshGroup = createMeshGroup();
 		const meshGroup1 = createMeshGroup();
 		const meshGroup2 = createMeshGroup();
 		const meshGroup3 = createMeshGroup();
 		const train = new Train();
 		train.scale.set(3, 3, 3);
-		train.position.set(12, -5, 8);
+		// train.position.set(12, -5, 8);
 		const { ambientLight, mainLight } = createLights();
 
 		this.#loop.updatables.push(
@@ -45,12 +46,16 @@ class World {
 			cube,
 			this.#controls,
 			this.#camera,
-			train
+			train,
+			cubeBall
 		);
 		cube.add(meshGroup);
 		meshGroup.add(meshGroup1);
 		meshGroup1.add(meshGroup2);
 		meshGroup2.add(meshGroup3);
+		cubeBall.position.set(-2, 4, 0);
+		cubeBall.scale.set(0.2, 0.2, 0.2);
+		train.add(cubeBall);
 		this.#scene.add(
 			ambientLight,
 			mainLight,
@@ -79,9 +84,7 @@ class World {
 		const { tokyo, parrot, flamingo, stork } = await loadBirds();
 
 		this.#controls.target.copy(tokyo.position);
-
 		this.#loop.updatables.push(tokyo, parrot, flamingo, stork);
-
 		this.#scene.add(tokyo, parrot, flamingo, stork);
 	}
 }

@@ -8,8 +8,8 @@ function createAxesHelper() {
 }
 
 function createGridHelper() {
-	const helper = new GridHelper(15, 30, "red", "yellow");
-	helper.rotation.set(MathUtils.degToRad(20), MathUtils.degToRad(20), 0);
+	const helper = new GridHelper(100, 30, "red", "yellow");
+	// helper.rotation.set(MathUtils.degToRad(20), MathUtils.degToRad(20), 0);
 	return helper;
 }
 

@@ -13,7 +13,9 @@ async function loadBirds() {
 		loader.loadAsync("src/assets/models/Parrot.glb"),
 		loader.loadAsync("src/assets/models/Flamingo.glb"),
 		loader.loadAsync("src/assets/models/Stork.glb"),
-		loader.loadAsync("src/assets/models/LittlestTokyo.glb"),
+		loader.loadAsync(
+			"src/assets/models/yu-gi-oh_slifer_the_sky_dragon_osiris.glb"
+		),
 	]);
 
 	console.log("Squaaawk!", tokyoData);
@@ -24,7 +26,7 @@ async function loadBirds() {
 	const tokyo = setupModel(tokyoData);
 
 	tokyo.scale.set(0.1, 0.1, 0.1);
-	tokyo.position.set(-15, 13, -10);
+	tokyo.position.set(0, 20, 0);
 
 	parrot.position.set(-34, 35, 5);
 	parrot.scale.set(5, 5, 5);

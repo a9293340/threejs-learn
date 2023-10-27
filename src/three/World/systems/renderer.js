@@ -8,7 +8,7 @@ function createRenderer() {
 
 	// turn on the physically correct lighting model
 	// renderer.useLegacyLights = true;
-	renderer.setPixelRatio(window.devicePixelRatio);
+	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 	return renderer;
 }
 

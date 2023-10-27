@@ -5,6 +5,7 @@ import {
 	CubeTextureLoader,
 	EquirectangularReflectionMapping,
 	SRGBColorSpace,
+	Fog,
 } from "three";
 
 function createScene() {
@@ -13,6 +14,7 @@ function createScene() {
 	const textureEquirec = createCubeTexture();
 
 	scene.background = textureEquirec;
+	scene.fog = new Fog(0x1a1a1a, 1, 1000);
 
 	return scene;
 }
