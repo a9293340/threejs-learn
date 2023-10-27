@@ -1,16 +1,10 @@
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MathUtils } from 'three';
 
 const createOsiris = async () => {
-  const dracoLoader = new DRACOLoader();
-  dracoLoader.setDecoderPath('src/assets/models/draco/gltf/');
   const loader = new GLTFLoader();
-  loader.setDRACOLoader(dracoLoader);
 
-  const target = await loader.loadAsync(
-    'src/assets/models/yu-gi-oh_slifer_the_sky_dragon_osiris.glb',
-  );
+  const target = await loader.loadAsync('/models/yu-gi-oh_slifer_the_sky_dragon_osiris.glb');
   const model = target.scene.children[0];
   model.scale.set(0.002, 0.002, 0.002);
   model.position.set(0, 2.5, 0);
